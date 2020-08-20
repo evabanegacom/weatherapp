@@ -10,7 +10,7 @@ function testing(div) {
   input.setAttribute('autocomplete', 'off');
   input.className = 'form-control text-muted form-rounded p-4 shadow-sm';
   const divcard = document.createElement('div');
-  divcard.className = 'card rounded my-3 shadow-lg back-card';
+  divcard.className = 'card rounded my-3 shadow-lg d-none back-card';
   const cardtop = document.createElement('div');
   cardtop.className = 'card-top text-center';
   const divcity = document.createElement('div');
