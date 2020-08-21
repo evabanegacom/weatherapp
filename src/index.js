@@ -63,7 +63,7 @@ function updateapp(city) {
   bodycard.innerHTML = `<div class="card-mid row">
     <div class="col-8 text-center temp">
       <span id="kelvin" onclick="${checkkelvin()}">${celciusconvert(city.main.temp)}&deg;C</span>
-      <p id="celciuss" class="d-none celcius" onclick="${checkkelvin()}">${fahconvert(city.main.temp)}&deg;F</p>
+      <p id="celciuss" class="d-none celcius">${fahconvert(city.main.temp)}&deg;F</p>
     </div>
     <div class="col-4 condition-temp">
       <p class="condition">${city.weather[0].description}</p>
