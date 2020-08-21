@@ -50,10 +50,24 @@ body {
 }
 
 .temp span {
-  font-weight: 100;
-  font-size: 5em;
+  font-weight: 700;
+  font-size: 3em;
   letter-spacing: -5px;
-  white-space: nowrap;
+  white-space: nowrap; 
+  cursor: pointer;
+  color: blue;
+}
+
+.temp p {
+  color: red;
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
 }
 
 .card-mid {
@@ -110,4 +124,16 @@ body {
   font-size: 50px;
   font-weight: 100;
   letter-spacing: -2px;
+}
+
+@-webkit-keyframes glow {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+  }
+
+  to {
+    color: gray;
+    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+  }
 }

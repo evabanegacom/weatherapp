@@ -21,36 +21,43 @@ const cardshow = document.querySelector('.back-card')
 //       console.log(error)
 //   })
 
-function dayornight(icon) {
-  if(icon.includes('d')){
-      return true
-  } else {
-      return false
-  }
-}
+
 const celciusconvert = (kelvin) => {
     const celcius = Math.round(kelvin-273.15);
     return celcius
-}
+};
+
+const fahconvert = (kelvin) => {
+  const celcius = Math.round(kelvin/3.7);
+  return celcius
+};
+
 const requestcity = async (city) => {
     const baseUrl = 'http://api.openweathermap.org/data/2.5/weather'
-    //const query = '?q=' + city + '&appid=' + key;
     const query = `?q=${city}&appid=${key}`
 
     const response = await fetch(baseUrl + query)
 
     const data = await response.json()
     return data
+};
+
+function checkkelvin(){
+  document.querySelector('body').addEventListener('click', (e) => {
+    e.target.id === 'kelvin'
+    document.querySelector('.celcius').classList.remove('d-none')
+  })
 }
+
 
 function updateapp(city) {
     const iconname = city.weather[0].icon
     const weathericon = `http://openweathermap.org/img/wn/${iconname}@2x.png`
-    console.log(city)
     cityname.innerHTML = city.name
     bodycard.innerHTML = `<div class="card-mid row">
     <div class="col-8 text-center temp">
-      <span>${celciusconvert(city.main.temp)}</span>
+      <span id="kelvin" onclick="${checkkelvin()}">${celciusconvert(city.main.temp)}&deg;C</span>
+      <p id="celciuss" class="d-none celcius" onclick="${checkkelvin()}">${fahconvert(city.main.temp)}&deg;F</p>
     </div>
     <div class="col-4 condition-temp">
       <p class="condition">${city.weather[0].description}</p>
@@ -72,14 +79,10 @@ function updateapp(city) {
       <span></span>
     </div>
   </div>`
-
-  if (dayornight) {
-      console.log('day')
+  if (iconname.includes('d')) {
       cardtopimage.setAttribute('src', './day_image.svg')
   } else{
-      console.log('night')
       cardtopimage.setAttribute('src', './night_image.svg')
-      cityname.claasList.add('text-white')
   }
 
   cardshow.classList.remove('d-none')
@@ -91,8 +94,6 @@ searchform.addEventListener('submit', (event) => {
    event.preventDefault();
 
    const citysearched = cityvalue.value.trim()
-
-   //console.log(citysearched)
 
    searchform.reset()
    requestcity(citysearched)

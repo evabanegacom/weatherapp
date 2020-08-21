@@ -29,7 +29,7 @@ function testing(div) {
   const cardbodycol = document.createElement('div');
   cardbodycol.className = 'col-8 text-center temp';
   const span2 = document.createElement('span');
-  span2.innerHTML = '30&deg;C';
+  
   const divcondition = document.createElement('div');
   divcondition.className = 'col-4 condition-temp';
   const condp = document.createElement('p');
