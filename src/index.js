@@ -57,7 +57,7 @@ function updateapp(city) {
   const date = new Date(1000 * unixTimeStamp);
   const hours = date.getHours();
   const minutes = date.getMinutes();
-  const format = `${hours - 1}:${minutes}`;
+  const format = `${hours}:${minutes}`;
   const weathericon = `http://openweathermap.org/img/wn/${iconname}@2x.png`;
   cityname.innerHTML = city.name;
   bodycard.innerHTML = `<div class="card-mid row">
@@ -67,8 +67,8 @@ function updateapp(city) {
     </div>
     <div class="col-4 condition-temp">
       <p class="condition">${city.weather[0].description}</p>
-      <p class="high">${celciusconvert(city.main.temp_max)}</p>
-      <p class="low">${celciusconvert(city.main.temp_min)}</p>
+      <p class="high">${celciusconvert(city.main.temp_max)}&deg;C</p>
+      <p class="low">${celciusconvert(city.main.temp_min)}&deg;C</p>
     </div>
   </div>
 
@@ -78,10 +78,10 @@ function updateapp(city) {
   <div class="card-bottom px-5 py-4 row">
     <div class="col text-center">
       <p>${format}</p>
-      <span>${celciusconvert(city.main.feels_like)}</span>
+      <span>${celciusconvert(city.main.feels_like)}&deg;C</span>
     </div>
     <div class="col text-center">
-      <p>${city.main.humidity}</p>
+      <p>${city.main.humidity}&deg;C</p>
       <span></span>
     </div>
   </div>`;
