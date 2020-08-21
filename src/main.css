@@ -7,10 +7,15 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  background: #e0e0e0;
+  background: url('./iced-water.jpg') no-repeat;
+  background-size: cover;
   color: #707070;
   margin: 0;
   padding: 0;
+}
+
+.date {
+  font-size: 12px;
 }
 
 .container {
@@ -38,7 +43,17 @@ body {
 
 .city-name p {
   font-size: 16pt;
-  font-weight: 400;
+  font-weight: 700;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
 .city-name span {
@@ -117,23 +132,45 @@ body {
 }
 
 .card-bottom span {
-  font-size: 12px;
+  font-size: 15px;
+  color: red;
+  font-weight: 700;
+
 }
 
 .card-bottom p {
-  font-size: 50px;
-  font-weight: 100;
+  font-size: 30px;
+  font-weight: 700;
+  color: blue;
   letter-spacing: -2px;
 }
 
-@-webkit-keyframes glow {
-  from {
-    color: #fff;
-    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
-  }
 
-  to {
-    color: gray;
-    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+.card {
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card.side {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
   }
 }
