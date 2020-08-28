@@ -34,7 +34,7 @@ const fahconvert = (kelvin) => {
 };
 
 const requestcity = async (city) => {
-  const baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
+  const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
   const query = `?q=${city}&appid=${key}`;
 
   const response = await fetch(baseUrl + query);
