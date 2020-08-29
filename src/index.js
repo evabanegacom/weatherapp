@@ -14,15 +14,6 @@ const cardtopimage = document.querySelector('.card-top img');
 const cardshow = document.querySelector('.back-card');
 
 
-// const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=4641011f258f0906246323fdd8f36a20'
-
-// fetch(baseUrl)
-//   .then((data) => {console.log('response', data.json())})
-//   .catch((error) => {
-//       console.log(error)
-//   })
-
-
 const celciusconvert = (kelvin) => {
   const celcius = Math.round(kelvin - 273.15);
   return celcius;
