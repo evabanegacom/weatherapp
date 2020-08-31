@@ -71,7 +71,7 @@ function updateapp(city) {
   high.innerHTML = `${celciusconvert(city.main.temp_max)}&deg;C`;
   low.innerHTML = `${celciusconvert(city.main.temp_min)}&deg;C`;
   time.innerHTML = format;
-  feelsLike.innerHTML = `${celciusconvert(city.main.feels_like)}&deg;C (feels like)`;
+  feelsLike.innerHTML = `${celciusconvert(city.main.feels_like)}&deg;C`;
   humidity.innerHTML = `${city.main.humidity}&deg;C`;
 
   if (iconname.includes('d')) {
