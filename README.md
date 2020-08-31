@@ -58,7 +58,7 @@
 This is a weather app that demonstrates using application processing interface (A.P.I) to get information
 to clients over the web
 
-The idea focuses on making the webpage easy to navigate and explore
+The idea focuses on easily getting information through API
 
 ## LIVE DEMO
  [Link to live demo](https://raw.githack.com/evabanegacom/weatherapp/feature/dist/index.html) 
