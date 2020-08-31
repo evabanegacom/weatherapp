@@ -31,7 +31,7 @@ function testing(div) {
   const span2 = document.createElement('span');
   span2.className = 'span2';
   const anodaspan = document.createElement('span');
-  anodaspan.className = 'd-none fah';
+  anodaspan.className = 'd-none fah text-danger';
   const divcondition = document.createElement('div');
   divcondition.className = 'col-4 condition-temp';
   const condp = document.createElement('p');
