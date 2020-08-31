@@ -9,9 +9,17 @@ const key = '4641011f258f0906246323fdd8f36a20';
 const searchform = document.querySelector('.search-location');
 const cityvalue = document.querySelector('.search-location input');
 const cityname = document.querySelector('.city-name p');
-const bodycard = document.querySelector('.card-body');
 const cardtopimage = document.querySelector('.card-top img');
 const cardshow = document.querySelector('.back-card');
+const tempspan = document.querySelector('.span2');
+const tempspan2 = document.querySelector('.fah');
+const weatherinfo = document.querySelector('.weatherinfo');
+const condition = document.querySelector('.condition');
+const high = document.querySelector('.high');
+const low = document.querySelector('.low');
+const time = document.querySelector('.sunset');
+const feelsLike = document.querySelector('.feelslike');
+const humidity = document.querySelector('.humid');
 
 
 const celciusconvert = (kelvin) => {
@@ -34,13 +42,17 @@ const requestcity = async (city) => {
   return data;
 };
 
+tempspan.addEventListener('click', (e) => {
+  e.preventDefault();
+  tempspan.classList.add('d-none');
+  tempspan2.classList.remove('d-none');
+});
 
-function checkkelvin() {
-  document.querySelector('body').addEventListener('click', () => {
-    document.querySelector('.celcius').classList.remove('d-none');
-  });
-}
-
+tempspan2.addEventListener('click', (e) => {
+  e.preventDefault();
+  tempspan2.classList.add('d-none');
+  tempspan.classList.remove('d-none');
+});
 
 function updateapp(city) {
   const iconname = city.weather[0].icon;
@@ -50,40 +62,23 @@ function updateapp(city) {
   const minutes = date.getMinutes();
   const format = `${hours}:${minutes}`;
   const weathericon = `http://openweathermap.org/img/wn/${iconname}@2x.png`;
+  weatherinfo.setAttribute('src', weathericon);
   cityname.innerHTML = city.name;
-  bodycard.innerHTML = `<div class="card-mid row">
-    <div class="col-8 text-center temp">
-      <span id="kelvin" onclick="${checkkelvin()}">${celciusconvert(city.main.temp)}&deg;C</span>
-      <p id="celciuss" class="d-none celcius">${fahconvert(city.main.temp)}&deg;F</p>
-    </div>
-    <div class="col-4 condition-temp">
-      <p class="condition">${city.weather[0].description}</p>
-      <p class="high">${celciusconvert(city.main.temp_max)}&deg;C</p>
-      <p class="low">${celciusconvert(city.main.temp_min)}&deg;C</p>
-    </div>
-  </div>
-
-  <div class="icon-container card shadow mx-auto">
-    <img src="${weathericon}" alt="" />
-  </div>
-  <div class="card-bottom px-5 py-4 row">
-    <div class="col text-center">
-      <p>${format}</p>
-      <span>${celciusconvert(city.main.feels_like)}&deg;C</span>
-    </div>
-    <div class="col text-center">
-      <p>${city.main.humidity}&deg;C</p>
-      <span></span>
-    </div>
-  </div>`;
+  cardshow.classList.remove('d-none');
+  tempspan.innerHTML = `${celciusconvert(city.main.temp)}&deg;C`;
+  tempspan2.innerHTML = `${fahconvert(city.main.temp)}&deg;F`;
+  condition.innerHTML = city.weather[0].description;
+  high.innerHTML = `${celciusconvert(city.main.temp_max)}&deg;C`;
+  low.innerHTML = `${celciusconvert(city.main.temp_min)}&deg;C`;
+  time.innerHTML = format;
+  feelsLike.innerHTML = `${celciusconvert(city.main.feels_like)}&deg;C`;
+  humidity.innerHTML = `${city.main.humidity}&deg;C`;
 
   if (iconname.includes('d')) {
     cardtopimage.setAttribute('src', './day_image.svg');
   } else {
     cardtopimage.setAttribute('src', './night_image.svg');
   }
-
-  cardshow.classList.remove('d-none');
 }
 
 // eventlistener for form

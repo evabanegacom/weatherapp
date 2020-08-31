@@ -6,7 +6,7 @@ function testing(div) {
   form.className = 'search-location';
   const input = document.createElement('input');
   input.setAttribute('type', 'text');
-  input.setAttribute('placeholder', 'what city?');
+  input.setAttribute('placeholder', 'Enter city?');
   input.setAttribute('autocomplete', 'off');
   input.className = 'form-control text-muted form-rounded p-4 shadow-sm';
   const divcard = document.createElement('div');
@@ -29,7 +29,9 @@ function testing(div) {
   const cardbodycol = document.createElement('div');
   cardbodycol.className = 'col-8 text-center temp';
   const span2 = document.createElement('span');
-
+  span2.className = 'span2';
+  const anodaspan = document.createElement('span');
+  anodaspan.className = 'd-none fah';
   const divcondition = document.createElement('div');
   divcondition.className = 'col-4 condition-temp';
   const condp = document.createElement('p');
@@ -44,6 +46,7 @@ function testing(div) {
   const weathericon = document.createElement('div');
   weathericon.className = 'icon-container card shadow mx-auto';
   const image2 = new Image();
+  image2.className = 'weatherinfo';
   image2.setAttribute('src', './cloud.svg');
   const cardbottom = document.createElement('div');
   cardbottom.className = 'card-bottom px-5 py-4 row';
@@ -51,12 +54,15 @@ function testing(div) {
   lasttemp.className = 'col text-center';
   const degp = document.createElement('p');
   degp.innerHTML = '27&deg;C';
+  degp.className = 'sunset';
   const degspan = document.createElement('span');
   degspan.innerHTML = 'feel like';
+  degspan.className = 'feelslike';
   const divhumid = document.createElement('div');
   divhumid.className = 'col text-center';
   const ptemp = document.createElement('p');
   ptemp.innerHTML = '55%';
+  ptemp.className = 'humid';
   const humidspan = document.createElement('span');
   humidspan.innerHTML = 'humidity';
 
@@ -72,6 +78,7 @@ function testing(div) {
   cardbottom.appendChild(lasttemp);
   cardbottom.appendChild(divhumid);
   cardbodycol.appendChild(span2);
+  cardbodycol.appendChild(anodaspan);
   divcondition.appendChild(condp);
   divcondition.appendChild(condp2);
   divcondition.appendChild(condp3);
