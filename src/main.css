@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: url('./iced-water.jpg') no-repeat;
+  background-size: cover;
+  color: #707070;
+  margin: 0;
+  padding: 0;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.container {
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.form-rounded {
+  border-radius: 2em;
+}
+
+.back-card {
+  border-radius: 40px !important;
+}
+
+.city-name {
+  position: absolute;
+  width: 100%;
+}
+
+.city-name p {
+  font-size: 16pt;
+  font-weight: 700;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+.city-name span {
+  font-weight: 400;
+  font-size: 36pt;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  top: -60px;
+}
+
+.temp span {
+  font-weight: 700;
+  font-size: 3em;
+  letter-spacing: -5px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: blue;
+}
+
+.temp p {
+  color: red;
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.card-mid {
+  line-height: 0.5;
+}
+
+.condition {
+  line-height: 1em;
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: capitalize;
+}
+
+.high::before {
+  content: '';
+  background: url('img/up.svg') no-repeat;
+  width: 10px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+.low::before {
+  content: '';
+  background: url('img/down.svg') no-repeat;
+  width: 10px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+.icon-container {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  background: #202020;
+}
+
+.icon-container img {
+  margin: auto;
+}
+
+.card-bottom {
+  line-height: 0.5;
+}
+
+.card-bottom span {
+  font-size: 15px;
+  color: red;
+  font-weight: 700;
+}
+
+.card-bottom p {
+  font-size: 30px;
+  font-weight: 700;
+  color: blue;
+  letter-spacing: -2px;
+}
+
+.card {
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card.side {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+
+  100% {
+    background-position: 500%;
+  }
+}
